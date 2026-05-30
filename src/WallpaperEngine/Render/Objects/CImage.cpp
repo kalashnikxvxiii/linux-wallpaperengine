@@ -113,7 +113,7 @@ CImage::ResolvedTransform CImage::resolveTransform (const Object& object, const 
     constexpr int kMaxParentDepth = 32;
     glm::vec3 origin = object.origin->value->getVec3 ();
     glm::vec3 scale;
-    float angle;
+    float angle = 0;
 
     if (object.is<Image> ()) {
 	const auto* image = object.as<Image> ();
