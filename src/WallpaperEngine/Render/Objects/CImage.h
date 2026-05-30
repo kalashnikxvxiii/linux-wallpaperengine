@@ -67,7 +67,8 @@ protected:
 	float angle;
     };
 
-    [[nodiscard]] ResolvedTransform resolveTransform (const WallpaperEngine::Data::Model::Object& object, int depth = 0) const;
+    [[nodiscard]] ResolvedTransform
+    resolveTransform (const WallpaperEngine::Data::Model::Object& object, int depth = 0) const;
 
 private:
     bool loadPuppetMesh (const glm::vec2& size);
@@ -75,14 +76,14 @@ private:
     void setupPuppetGeometryCallback (Effects::CPass* pass) const;
     void updateGeometryBuffers ();
     [[nodiscard]] glm::vec2 resolveGeometrySize (float sceneWidth, float sceneHeight, glm::vec3& origin) const;
-    void updateScenePosition (const glm::vec3& origin, const glm::vec2& size, const glm::vec3& scale, float sceneWidth, float sceneHeight);
+    void updateScenePosition (
+	const glm::vec3& origin, const glm::vec2& size, const glm::vec3& scale, float sceneWidth, float sceneHeight
+    );
     void uploadGeometryBuffers (const glm::vec2& size);
     [[nodiscard]] bool shouldRenderFinalPass (bool isLastPass) const;
     bool configurePassTarget (
-	Effects::CPass* pass,
-	std::shared_ptr<const CFBO>& drawTo,
-	const std::shared_ptr<const TextureProvider>& asInput,
-	std::shared_ptr<const TextureProvider>& effectInput,
+	Effects::CPass* pass, std::shared_ptr<const CFBO>& drawTo,
+	const std::shared_ptr<const TextureProvider>& asInput, std::shared_ptr<const TextureProvider>& effectInput,
 	bool& inTargetEffectSequence
     );
 
